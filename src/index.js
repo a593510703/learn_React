@@ -2,6 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+function toCelsius(fahrenheit) {
+  return (fahrenheit - 32) * 5 / 9;
+}
+
+function toFahrenheit(celsius) {
+  return (celsius * 9 / 5) + 32;
+}
+
 const scaleNames = {
   c: 'Celsius',
   f: 'Fahrenheit',

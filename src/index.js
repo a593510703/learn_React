@@ -3,24 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 class Toggle extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {isToggleOn: true};
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    this.setState(
-      state => ({
-        isToggleOn: !state.isToggleOn,
-      })
-    );
+  handleClick = () => {
+    console.log('this is: ', this);
   }
 
   render() {
     return (
       <button onClick={this.handleClick}>
-        {this.state.isToggleOn ? "ON" : "OFF"}
+        Click me
       </button>
     );
   }

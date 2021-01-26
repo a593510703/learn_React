@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-class EssayForm extends React.Component {
+class FlavorForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "DOM元素文章.",
+      value: "coconut",
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -18,7 +18,7 @@ class EssayForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('提交的文章: ' + this.state.value);
+    alert('喜欢的风味是: ' + this.state.value);
     event.preventDefault();
   }
 
@@ -26,8 +26,13 @@ class EssayForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          文章：
-          <textarea value={this.state.value} onChange={this.handleChange} />
+          选择你喜欢的风味：
+          <select value={this.state.value} onChange={this.handleChange}>
+            <option value='grapefruit'>pty</option>
+            <option value='lime'>lc</option>
+            <option value='coconut'>yz</option>
+            <option value='mango'>mg</option>
+          </select>
         </label>
         <input type="submit" value="提交" />
       </form>
@@ -36,6 +41,6 @@ class EssayForm extends React.Component {
 }
 
 ReactDOM.render(
-  <EssayForm />,
+  <FlavorForm />,
   document.getElementById('root'),
 );

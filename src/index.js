@@ -2,16 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-function Test(props) {
-  const isLoggedIn = this.state.isLoggedIn;
-  return (
-    <div>
-      The user is <b>{isLoggedIn ? "currently" : "not"}</b> logged in.
-    </div>
-  );
-}
+const numbers = [1, 2, 3, 4, 5];
+const listItems = numbers.map(
+  (number) => <li>{number * 2}</li>
+);
 
 ReactDOM.render(
-  <Test isLoggedIn={true} />,
+  <ul>{listItems}</ul>,
   document.getElementById('root'),
 )

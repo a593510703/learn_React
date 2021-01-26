@@ -29,6 +29,17 @@ class Clock extends React.Component {
     this.state = {date: new Date()};
   }
 
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      100,
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
   render() {
     return (
       <div>
@@ -37,13 +48,13 @@ class Clock extends React.Component {
       </div>
     );
   }
+
+  tick() {
+    this.setState({date: new Date()});
+  }
 }
 
-function tick() {
-  ReactDOM.render(
-    <Clock />,
-    document.getElementById('root'),
-  );
-}
-
-setInterval(tick, 1000);
+ReactDOM.render(
+  <Clock />,
+  document.getElementById('root'),
+);

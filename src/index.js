@@ -2,23 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-class NameForm extends React.Component {
+class EssayForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ""};
+    this.state = {
+      value: "DOM元素文章.",
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({
-      value: event.target.value
-    });
+    this.setState({value: event.target.value});
   }
 
   handleSubmit(event) {
-    alert('提交的名字：' + this.state.value);
+    alert('提交的文章: ' + this.state.value);
     event.preventDefault();
   }
 
@@ -26,16 +26,16 @@ class NameForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          名字：
-          <input type='text' value={this.state.value} onChange={this.handleChange} />
+          文章：
+          <textarea value={this.state.value} onChange={this.handleChange} />
         </label>
-        <input type='submit' value='提交' />
+        <input type="submit" value="提交" />
       </form>
     );
   }
 }
 
 ReactDOM.render(
-  <NameForm />,
+  <EssayForm />,
   document.getElementById('root'),
 );

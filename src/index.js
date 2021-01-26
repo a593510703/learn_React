@@ -27,7 +27,7 @@ class FlavorForm extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           选择你喜欢的风味：
-          <select value={this.state.value} onChange={this.handleChange}>
+          <select multiple={true} value={['B', 'C']}>
             <option value='grapefruit'>pty</option>
             <option value='lime'>lc</option>
             <option value='coconut'>yz</option>

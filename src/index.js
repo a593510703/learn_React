@@ -1,25 +1,16 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import Button from '@material-ui/core/Button'
 
-function ListItem({ item }) {
+function App() {
   return (
-    <Fragment>
-      <dt>{item.term}</dt>
-      <dd>{item.description}</dd>
-    </Fragment>
-  );
-}
-
-function Glossary(props) {
-  return (
-    <dl>
-      {props.items.map(item => (<ListItem item={item} key={item.id} />))}
-    </dl>
+    <Button variant="contained" color="primary">
+      Hello world
+    </Button>
   );
 }
 
 ReactDOM.render(
-  <Glossary />,
+  <App />,
   document.getElementById('root'),
 );

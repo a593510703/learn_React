@@ -19,17 +19,38 @@ function Dialog(props) {
       <p className="Dialog-message">
         {props.message}
       </p>
+      {props.children}
     </FancyBorder>
   );
 }
 
-function WelcomeDialog() {
-  return (
-    <Dialog title="Welcome" message="Thank you for visiting our spacecraft!" />
-  );
+class SignUpDialog extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSignup = this.handleSignup.bind(this);
+    this.state = {login: ''};
+  }
+
+  render() {
+    return (
+      <Dialog title="Mars Exploration Program" message="How should we refer to you?">
+        <input value={this.state.login} onChange={this.handleChange} />
+        <button onClick={this.handleSignup}>Sign Me Up!</button>
+      </Dialog>
+    );
+  }
+
+  handleChange(e) {
+    this.setState({login: e.target.value});
+  }
+
+  handleSignup() {
+    alert(`Welcome aboard, ${this.state.login}!`);
+  }
 }
 
 ReactDOM.render(
-  <WelcomeDialog />,
+  <SignUpDialog />,
   document.getElementById('root'),
 );
